@@ -1,9 +1,12 @@
 {% extends "outer_layout.html" %}
 
-{% block credentials%}
-<br><br>
-<input type="text" name="" value="" placeholder="Username"><br><br>
-<input type="text" name="" value="" placeholder="Password"><br><br>
-<input type="text" name="" value="" placeholder="Confirm Password"><br><br>
-<button type="button" name="button"><a href="#">SIGN UP</a></button>
+{% block credentials %}
+<br>
+{{ form.username(placeholder="Username", class="form-control form-control-sm") }} <br>
+{{ form.password(placeholder="Password", class="form-control form-control-sm") }} <br>
+{{ form.confirm_password(placeholder="Confirm Password", class="form-control form-control-sm")}} <br>
+{{ form.submit(class="btn btn-light") }} <br><br>
+
+<small class="text-muted"> Already a Member? <a class="" href="login">Sign In!</a></small>
+
 {% endblock credentials%}
