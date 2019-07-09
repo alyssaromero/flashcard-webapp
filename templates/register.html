@@ -7,16 +7,53 @@
   <fieldset class="form-group">
     <legend>
       <div class="form-group">
-        {{ form.username(placeholder="Username", class="form-control form-control-sm") }}
+        {% if form.username.errors %}
+          {{ form.username(placeholder="Username", class="form-control form-control-sm is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.username.errors%}
+              <span>{{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.username(placeholder="Username", class="form-control form-control-sm") }}
+        {% endif %}
+
       </div>
       <div class="form-group">
-        {{ form.email(placeholder="Email", class="form-control form-control-sm") }}
+        {% if form.email.errors %}
+          {{ form.email(placeholder="Email", class="form-control form-control-sm is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.email.errors %}
+              <span> {{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.email(placeholder="Email", class="form-control form-control-sm") }}
+        {% endif %}
       </div>
       <div class="form-group">
-        {{ form.password(placeholder="Password", class="form-control form-control-sm") }}
+        {% if form.password.errors %}
+          {{ form.password(placeholder="Password", class="form-control form-control-sm is-invalid") }}
+          <div class="invalid-feedback">
+            {% for error in form.password.errors %}
+              <span> {{ error }}</span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.password(placeholder="Password", class="form-control form-control-sm") }}
+        {% endif %}
       </div>
       <div class="form-group">
-        {{ form.confirm_password(placeholder="Confirm Password", class="form-control form-control-sm")}}
+        {% if form.confirm_password.errors %}
+          {{ form.confirm_password(placeholder="Confirm Password", class="form-control form-control-sm is-invalid")}}
+          <div class="invalid-feedback">
+            {% for error in form.confirm_password.errors %}
+             <span> {{ error }} </span>
+            {% endfor %}
+          </div>
+        {% else %}
+          {{ form.confirm_password(placeholder="Confirm Password", class="form-control form-control-sm")}}
+        {% endif %}
       </div>
       <div class="form-group">
         {{ form.submit(class="btn btn-light") }} <br><br>
