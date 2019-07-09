@@ -1,12 +1,30 @@
 {% extends "outer_layout.html" %}
 
 {% block credentials %}
-<br>
-{{ form.username(placeholder="Username", class="form-control form-control-sm") }} <br>
-{{ form.password(placeholder="Password", class="form-control form-control-sm") }} <br>
-{{ form.confirm_password(placeholder="Confirm Password", class="form-control form-control-sm")}} <br>
-{{ form.submit(class="btn btn-light") }} <br><br>
 
-<small class="text-muted"> Already a Member? <a class="" href="login">Sign In!</a></small>
+<form action="" method="POST">
+  {{form.hidden_tag()}}
+  <fieldset class="form-group">
+    <legend>
+      <div class="form-group">
+        {{ form.username(placeholder="Username", class="form-control form-control-sm") }}
+      </div>
+      <div class="form-group">
+        {{ form.email(placeholder="Email", class="form-control form-control-sm") }}
+      </div>
+      <div class="form-group">
+        {{ form.password(placeholder="Password", class="form-control form-control-sm") }}
+      </div>
+      <div class="form-group">
+        {{ form.confirm_password(placeholder="Confirm Password", class="form-control form-control-sm")}}
+      </div>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-light") }} <br><br>
+      </div>
+    </legend>
+  </fieldset>
+</form>
+
+<small class="text-muted"> Already a Member? <a class="" href="/login">Sign In!</a></small>
 
 {% endblock credentials%}

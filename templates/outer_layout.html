@@ -15,6 +15,15 @@
     </div>
     <div class="right">
       <div class="credentials">
+        {% with messages = get_flashed_messages(with_categories=True) %} <!-- allows us to recognize 'success' tags for flash messages -->
+          {% if messages %} <!-- Meaning 'messages' is not empty-->
+            {% for category, message in messages %} <!-- Looping over flash messages -->
+              <div class="alert alert-{{ category }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
         {% block credentials %} {% endblock %}
       </div>
     </div>
