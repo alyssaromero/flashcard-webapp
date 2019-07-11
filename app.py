@@ -29,7 +29,7 @@ def login():
 def register():
 	form = registrationForm()
 	if form.validate_on_submit():
-		flash('Account Created', 'success')
+		flash('Account Created! Login to Continue', 'success')
 		return redirect(url_for('login'))
 	return render_template("register.html", form=form)
 
