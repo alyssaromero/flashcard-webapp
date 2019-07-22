@@ -1,0 +1,166 @@
+/*#F5F5F5 Gray*/
+/*#FFF2CC Yellow */
+
+/** SIGNIN/SIGNUP PAGES **/
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: #F5F5F5;
+}
+
+.baseNav {
+  background: #FFF2CC;
+  width: 100%;
+  height: 10%;
+  border-bottom: gray 4px solid;
+}
+
+.credentialsBackground {
+  background: #FFF2CC;
+  width: 60%;
+  height: 50%;
+  margin-left: 20%;
+  margin-top: 10%;
+  border: 4px gray solid;
+}
+
+.credentials {
+  background: white;
+  width: 60%;
+  height: 100%;
+  margin-left: 20%;
+  border-left: gray 4px solid;
+  border-right: gray 4px solid;
+}
+
+.signupText {
+  text-align: center;
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.signinText {
+  text-align: center;
+  height: 80%;
+  width: 80%;
+  margin-left: 10%;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+/** MAIN PAGE **/
+
+.navbar a {
+  color: black;
+}
+
+.topicViewer {
+  width: 25%;
+  height: 100%;
+  display: inline-block;
+  background: #FFF2CC;
+  border-right: 4px gray solid;
+}
+
+.topContainer {
+  background: white;
+  width: 100%;
+  height: 10%;
+}
+
+.topicViewer h2 {
+  width: 80%;
+  height: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.topicViewer button {
+  width: 20%;
+  height: 100%;
+  float: right;
+  display: inline-block;
+}
+
+.topicViewer .topicList {
+  height: 85%;
+}
+
+.topicViewer .topicList {
+  height: 70%;
+  width: 100%;
+  background: green;
+  border-top: 4px gray solid;
+  border-bottom: 4px gray solid;
+}
+
+.topicViewer .bottomContainer {
+  width: 100%;
+  height: 10%;
+}
+
+.topicViewer .bottomContainer button {
+  width: 150px;
+  height: 100%;
+  text-align: center;
+  float: left;
+  margin-left: 30%;
+}
+
+.gameScreen {
+  width: 75%;
+  height: 100%;
+  display: inline-block;
+  float: right;
+  background: #F5F5F5;
+}
+
+.flashcard {
+  background: white;
+  width: 70%;
+  height: 60%;
+  border: gray 4px solid;
+  margin-left: 15%;
+  margin-top: 7%;
+  text-align: center;
+}
+
+.gameButtons {
+  margin-left: 15%;
+  width: 70%;
+}
+
+.gameButtons button {
+  margin-top: 15%;
+  width: 100%;
+}
+
+.gameButtons .firstbutton {
+  display: inline-block;
+  width: 15%;
+}
+
+.gameButtons .userinput {
+  display: inline-block;
+  width: 40%;
+  margin-left: 20%;
+}
+
+.gameButtons input {
+  width: 100%;
+}
+
+.gameButtons .secondButton {
+  display: inline-block;
+  float: right;
+  width: 15%;
+  margin: 0;
+}

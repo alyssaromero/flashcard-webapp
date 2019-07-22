@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="credentialsBackground">
+  <div class="credentials">
+    <div class="signupText">
+      <h3>WELCOME!</h3>
+      <form action="" method="POST">
+        {{form.hidden_tag()}}
+        <fieldset class="form-group">
+          <legend>
+            <div class="form-group">
+              {% if form.firstName.errors %}
+                {{ form.firstName(placeholder="First Name", class="form-control form-control-sm is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.firstName.errors%}
+                    <span>{{ error }}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.firstName(placeholder="First Name", class="form-control form-control-sm", autocomplete="off") }}
+              {% endif %}
+            </div>
+            <div class="form-group">
+              {% if form.lastName.errors %}
+                {{ form.lastName(placeholder="Last Name", class="form-control form-control-sm is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.lastName.errors %}
+                    <span> {{ error }}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.lastName(placeholder="LastName", class="form-control form-control-sm", autocomplete="off") }}
+              {% endif %}
+            </div>
+            <div class="form-group">
+              {% if form.username.errors %}
+                {{ form.username(placeholder="Username", class="form-control form-control-sm is-invalid") }}
+                <div class="invalid-feedback">
+                  {% for error in form.username.errors %}
+                    <span> {{ error }}</span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.username(placeholder="Username", class="form-control form-control-sm", autocomplete="off") }}
+              {% endif %}
+            </div>
+            <div class="form-group">
+              {% if form.password.errors %}
+                {{ form.password(placeholder="Password", class="form-control form-control-sm is-invalid")}}
+                <div class="invalid-feedback">
+                  {% for error in form.password.errors %}
+                   <span> {{ error }} </span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.password(placeholder="Password", class="form-control form-control-sm", autocomplete="off")}}
+              {% endif %}
+            </div>
+            <div class="form-group">
+              {% if form.confirmPassword.errors %}
+                {{ form.confirmPassword(placeholder="Confirm Password", class="form-control form-control-sm is-invalid")}}
+                <div class="invalid-feedback">
+                  {% for error in form.confirmPassword.errors %}
+                   <span> {{ error }} </span>
+                  {% endfor %}
+                </div>
+              {% else %}
+                {{ form.confirmPassword(placeholder="Confirm Password", class="form-control form-control-sm", autocomplete="off")}}
+              {% endif %}
+            </div>
+            <div class="form-group">
+              {{ form.submit(class="btn btn-dark") }}
+            </div>
+            <small class="text-muted"> Already a Member? <a class="" href="/signin">Sign In!</a></small>
+          </legend>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock content %}
