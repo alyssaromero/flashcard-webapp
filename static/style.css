@@ -91,13 +91,28 @@ body {
 }
 
 .topicViewer .topicList {
-  height: 85%;
+  height: 80%;
+}
+
+.topicViewer table {
+  width: 100%;
+  height: 10%;
+}
+
+.topicViewer table td:first-child {
+  width: 20%;
+}
+
+.topicViewer table td {
+  width: 100%;
+  border: black 2px solid;
+  text-align: center;
 }
 
 .topicViewer .topicList {
   height: 70%;
   width: 100%;
-  background: green;
+  background: white;
   border-top: 4px gray solid;
   border-bottom: 4px gray solid;
 }
