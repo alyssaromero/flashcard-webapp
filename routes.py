@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5aa6face94d8ddee195ead1c27068eec'
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @app.route("/signin", methods=["GET", "POST"])
 def login():
 	form = signinForm()
@@ -16,6 +16,7 @@ def login():
 			QUERY LOGIN INFOR AGAINST DB AND AUTHENTICATE USER
 		"""
 		user = User.query.filter_by(username=form.username.data).first()
+		firstName = user.firstName
 
 		"""
 			HANDLE LOGIN USE CASES
@@ -23,11 +24,11 @@ def login():
 		if user is None:
 			flash("User Not Found -- Please Sign Up")
 		elif user.check_password(form.password.data):
-			flash("Welcome Back " + form.firstName.data + " !")
+			flash("Welcome Back " + firstName + " !")
 		else:
 			flash("Invalid Login Credentials!")
 
-		return redirect(url_for("main"))
+		return render_template("main.html", firstName=firstName)
 	return render_template("signin.html", form=form)
 
 @app.route("/signup", methods=["GET", "POST"])
@@ -83,6 +84,7 @@ class User(db.Model):
 	lastName = db.Column(db.String(80))
 	username = db.Column(db.String(20))
 	password_hash = db.Column(db.String(128))
+	userTopics = db.relation("Topic")
 
 	def set_password(self, password):
 		self.password_hash = generate_password_hash(password)
@@ -100,6 +102,8 @@ class Topic(db.Model):
 
 	id = db.Column(db.Integer, primary_key=True)
 	title = db.Column(db.String(128))
+	user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+	topicCards = db.relation("Card")
 
 	def __init__(self, title):
 		self.title = title
@@ -115,6 +119,7 @@ class Card(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	front = db.Column(db.String(128)) #STORES FRONT OF FLASHCARD
 	back = db.Column(db.String(128)) #STORES BACK OF flashcard
+	topic_id = db.Column(db.Integer, db.ForeignKey('topics.id'))
 
 	def __init__(self, front, back):
 		self.front = front
